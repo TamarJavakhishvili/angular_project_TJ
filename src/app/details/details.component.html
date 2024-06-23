@@ -1,0 +1,29 @@
+<body>
+    <div *ngIf="product" class="details-container">
+        <div class="product-images">
+            <img [src]="product.image" alt="{{product.title}}" class="main-image">
+            <div class="image-thumbnails">
+                <img *ngFor="let img of product.images" [src]="img" alt="{{product.title}}" class="thumbnail">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1>{{product.title}}</h1>
+            <h2 class="price">${{product.price}}</h2>
+            <p class="category">{{product.category}}</p>
+            <p class="description">{{product.description}}</p>
+
+            <button (click)="addToCart()" class="btn btn-success btn-lg add-to-cart">{{buttonText}}</button>
+            <button (click)="goBack()" class="btn btn-secondary btn-lg go-back">Go Back</button>
+
+            <div class="customer-reviews">
+                <h3>Customer Reviews</h3>
+                <div class="review" *ngFor="let review of product.reviews">
+                    <h4>{{review.author}}</h4>
+                    <p>{{review.comment}}</p>
+                    <p>Rating: {{review.rating}}/5</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

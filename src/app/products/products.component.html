@@ -1,0 +1,24 @@
+<div class="form-group price-div">
+    <label for="minPrice">Minimum Price</label>
+    <input [(ngModel)]="minPrice" type="text" class="form-control price-input" id="minPrice"
+        placeholder="Enter start price">
+
+    <label for="maxPrice">Maximum Price</label>
+    <input [(ngModel)]="maxPrice" type="text" class="form-control price-input" id="maxPrice"
+        placeholder="Enter end price">
+
+    <button (click)="filterByPrice()" class="btn btn-primary filter-button">Filter</button>
+</div>
+
+<div class="container product-container">
+    <div *ngFor="let product of filteredList" class="card product-card">
+        <img [src]="product.image" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <h5 class="card-title">{{product.price | currency}}</h5>
+            <h5 class="card-title">{{product.category}}</h5>
+
+            <a [routerLink]="['/details', product.id]" class="btn btn-primary details-button">Details</a>
+        </div>
+    </div>
+</div>

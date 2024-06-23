@@ -1,0 +1,20 @@
+<div class="home-container">
+    <div class="welcome-text">
+        <h1>Welcome to Our Store!</h1>
+        <h4>Discover amazing products and great deals. Shop the latest trends now!</h4>
+        <h4>Choose from below categories</h4>
+    </div>
+
+    <div class="container">
+        <div class="categories">
+            <button *ngFor="let category of categories" routerLink="/products" [queryParams]="{ test: category }"
+                class="btn btn-category">
+                <img [src]="getCategoryImage(category)" alt="{{ category }} image" class="category-image">
+                {{ category }}
+            </button>
+        </div>
+
+        <h4 class="enjoy">Enjoy Shopping!</h4>
+
+    </div>
+</div>
